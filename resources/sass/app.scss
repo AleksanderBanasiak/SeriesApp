@@ -1,0 +1,161 @@
+// Fonts
+@import url('https://fonts.bunny.net/css?family=Nunito');
+// resources/sass/app.scss
+
+@import '@fortawesome/fontawesome-free/css/all.css';
+
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import 'bootstrap/scss/bootstrap';
+
+
+body{
+    background-color:#182338;
+}
+.createForm{
+    background-color: #4764A3;
+    color: white;
+    width: 70%;
+    margin: auto;
+    padding: 40px;
+    border-radius: 30px;
+}
+.topRating{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.allRating{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+}
+.description{
+    word-wrap: break-word;  
+}
+
+.bootomRating{
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.rating {
+    display: flex;
+    flex-direction: row-reverse; 
+    margin: 0;
+   
+}
+.rating2{
+    margin-top: 12px;
+    margin-right: 5px;
+}
+.yourRating{
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    font-size: 20px;
+    width: 120%;
+}
+.rating label {
+    cursor: pointer;
+}
+.addPlus{
+    border: none;
+    height: 30px;
+    width: 30px;
+    border-radius: 5px;
+    background-color: #182338;
+    color: white; 
+    margin: 15px 0 0 10px;
+}
+
+.rating input {
+    display: none;
+}
+
+.rating label i.fa-star {
+    color: #ccc;
+}
+
+.rating input:checked ~ label i.fa-star,
+.rating label:hover i.fa-star {
+    color: #ffc107;
+}
+
+.rating input:checked ~ label:hover ~ label i.fa-star {
+    color: #ccc; 
+}
+
+
+.bootomRating2{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 60%;
+  
+    margin-bottom: 50px;
+}
+.delButton{
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #182338;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    transition: 0.4s ease-in-out;
+}
+.delButton:hover{
+    background-color: white;
+    color: #182338;
+}
+.delButton button{
+    background-color: #182338;
+    color: white;
+    border: none;
+    transition: 0.4s ease-in-out;
+}
+.delButton:hover button{
+    background-color: white;
+    color: #182338;
+}
+.serachBar{
+    
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+    color: #ccc;
+}
+.serachBar input{
+    border: none;
+    border-radius: 10px;
+    margin-top: 10px;
+    height: 40px;
+    background-color: #4764A3;
+    color: #ccc;
+    
+}
+.serachBar button{
+    margin-left: 20px;
+    color: #ccc;
+    background-color: #4764A3;
+}
+.serachBar button:hover{
+
+    color: #4764A3;
+    background-color: #ccc;
+}
+.serachDiv{
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 50px;
+}
