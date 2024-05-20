@@ -13,19 +13,10 @@ class ViewController extends Controller
         $series = Series::all(); 
 
         if(request()->has('search')){
-
-           
             $series = Series::all()->filter(function ($item) {
                 return strpos($item->name, request()->input('search', '')) !== false;
             });
-
-
         }
-
-       
-
-       
-
         $avgRatings = [];
         $userRatings = [];
         $user = null;
@@ -41,4 +32,14 @@ class ViewController extends Controller
             }
         return view('home', ['series' => $series, 'ratings' => $avgRatings, 'userRatings' => $userRatings, 'user' => $user]);
     }
+
+
+
+    
+    public function displayAdmin(){
+
+        $users = \App\Models\User::all();
+        return view('adminHome', ['users' => $users]);
+    }
+
 }
