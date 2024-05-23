@@ -10,7 +10,7 @@ class ViewController extends Controller
 {    
     public function displayAll(){
 
-        $series = Series::all(); 
+        $series = Series::paginate(3); 
 
         if(request()->has('search')){
             $series = Series::all()->filter(function ($item) {
@@ -35,11 +35,6 @@ class ViewController extends Controller
 
 
 
-    
-    public function displayAdmin(){
-
-        $users = \App\Models\User::all();
-        return view('adminHome', ['users' => $users]);
-    }
+   
 
 }

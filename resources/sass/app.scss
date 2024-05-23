@@ -111,6 +111,8 @@ body{
     color: white;
     text-align: center;
     transition: 0.4s ease-in-out;
+    text-align: center;
+    justify-content: center;
 }
 .delButton:hover{
     background-color: white;
@@ -158,4 +160,25 @@ body{
     justify-content: flex-end;
     align-items: center;
     margin-right: 50px;
+}
+
+.paginator{
+    display: flex;
+    justify-content: center;
+}
+.adminTab{
+    width: 45%;
+    margin: auto;
+}
+.userList{
+    width: 40%;
+    text-align: center;
+    margin: auto;
+}
+.mySeriesUser{
+    color: white;
+    display: flex;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 40px;
 }

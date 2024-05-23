@@ -17,10 +17,12 @@ class isAdmin
     public function handle(Request $request, Closure $next)
     {
         if(auth()->check()){
-            if(auth()->user()->is_admin ==1){
+            if(auth()->user()->role ==1){
                 return $next($request);
-               
-            }else{
+            }elseif(auth()->user()->role ==2){
+                    return to_route('manager');
+            } 
+            else{
                 return to_route('home');
             }
         }

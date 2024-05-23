@@ -12,8 +12,9 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    <!-- Scripts -->
+
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body>
@@ -33,13 +34,13 @@
 
                     <ul class="navbar-nav ms-auto " >
                         <li class="nav-item">
-                           <a class="nav-link" href="/home" style="color:white;">Home</a>
+                           <a class="nav-link" href="/" style="color:white;">Home</a>
                         </li>
                         <li class="nav-item">
                         @if (auth()->check() && auth()->user()->id)
                         <a class="nav-link" href="/my-series/{{ auth()->user()->id }}" style="color:white;">My series</a>
                         @else
-                        <a class="nav-link" href="#" style="color:white;">My series</a>
+                        <a class="nav-link" href="/login" style="color:white;">My series</a>
    
                         @endif
                         </li>

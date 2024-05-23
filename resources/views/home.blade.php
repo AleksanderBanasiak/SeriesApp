@@ -94,9 +94,12 @@
                 </div>
             </div>
         </div>
-
-   
-
     @endforeach
+    <div class="paginator">
+    {{$series->links()}}
+    </div>
 </div>
+
+
+
 @endsection

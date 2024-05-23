@@ -18,13 +18,14 @@ class SeriesController extends Controller
 
     public function store(){
 
-        $data = request()->validate([
-            'name' => 'required',
-            'description' => 'required',
-            'yearOfRelease' => 'required',
-            'numberOfSeasons' => 'required',
-            'image' => ['required','image'],
+      $data = request()->validate([
+        'name' => 'required',
+        'description' => 'required|min:10',
+        'yearOfRelease' => 'required|integer|between:1990,' . date('Y'),
+        'numberOfSeasons' => 'required|integer|between:1,50',
+        'image' => ['required', 'image'],
         ]);
+    
 
         $imagePath = request('image')->store('uploads', 'public');
 
@@ -48,11 +49,11 @@ class SeriesController extends Controller
       public function update(Series $series){
       
         $data = request()->validate([
-            'name' => 'required',
-            'description' => 'required',
-            'yearOfRelease' => 'required',
-            'numberOfSeasons' => 'required',
-            'image' => ['required','image'],
+        'name' => 'required',
+        'description' => 'required|min:10',
+        'yearOfRelease' => 'required|integer|between:1990,' . date('Y'),
+        'numberOfSeasons' => 'required|integer|between:1,50',
+        'image' => ['required', 'image'],
         ]);
 
 

@@ -2,12 +2,13 @@
 
 @section('content')
 <div class="container">
-
+<h1 class="mySeriesUser">{{ $user->username }} 's series</h1>
 
 @foreach($user->series as $singleSeries)
 <div class="row m-5" style="border-radius: 20px; padding: 10px; background-color: #4764A3; color: white;">
             <div class="col-md-4">
                 <img src="/storage/{{ $singleSeries->image }}" alt="{{ $singleSeries->name }}" class="w-100">
+               
             </div>
             <div class="col-md-8 row ">
                 <div class="col-md-8 description">
@@ -36,5 +37,7 @@
    
 
     @endforeach
+
+   
 </div>
 @endsection
