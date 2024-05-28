@@ -13,10 +13,18 @@ class SeriesController extends Controller
     }
 
     public function create(){
-        return view('series/create');
+     
+        return view('series/create' , ['enabled' => auth()->user()->enabled]);
+      
+        
     }
 
     public function store(){
+
+
+      
+
+      
 
       $data = request()->validate([
         'name' => 'required',

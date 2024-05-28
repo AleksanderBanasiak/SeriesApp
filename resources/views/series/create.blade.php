@@ -3,9 +3,11 @@
 @section('content')
 <div class="container" >
 <div class="createForm">
+@if($enabled ==1)
 <form action="/series" enctype="multipart/form-data" method="post" >
     @csrf
 
+    
     <div class=row >
         <div class="col-8 offset-2" >
             <div class="row mb-3">
@@ -125,6 +127,13 @@
         <button class="btn btn-primary" style="background-color: #182338">Add new series</button>
     </div>
 </form>
+@else
+<div class="cant" style="font-size: 40px">
+    You can't add a series because the manager<br>
+    has disabled this option for you!!
+</div>
+
+@endif
 </div>
 </div>
 @endsection
