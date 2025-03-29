@@ -20,7 +20,7 @@ class RateController extends Controller
                             ->exists();
 
     if($existingRating) {
-        return redirect('/home')->with('error', 'Nie możesz ocenić tego samego serialu więcej niż raz.');
+        return redirect('/')->with('error', 'Nie możesz ocenić tego samego serialu więcej niż raz.');
     }
 
     $rating = new Rating();
@@ -29,6 +29,7 @@ class RateController extends Controller
     $rating->rating = $userData['rating'];
     $rating->save();
 
-    return redirect('/home')->with('success', 'Ocena została dodana pomyślnie.');
+    return redirect('/')->with('success', 'Ocena została dodana pomyślnie.');
     }
+    
 }

@@ -16,5 +16,8 @@ class Series extends Model
         return $this->belongTo(User::class);
     }
 
-
+    public function savedByUsers()
+{
+    return $this->hasMany(SavedSeries::class);
+}
 }

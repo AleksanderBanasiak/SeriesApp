@@ -41,12 +41,18 @@
                         <a class="nav-link" href="/my-series/{{ auth()->user()->id }}" style="color:white;">My series</a>
                         @else
                         <a class="nav-link" href="/login" style="color:white;">My series</a>
-   
                         @endif
                         </li>
                         <li class="nav-item">
                            <a class="nav-link" href="/series/create" style="color:white;">Add series</a>
                         </li>
+                        <li class="nav-item">
+                            @if (auth()->check())
+                            <a class="nav-link" href="/saved-series" style="color:white;">Saved series</a>
+                            @else
+                            <a class="nav-link" href="/login" style="color:white;">Saved series</a>
+                            @endif
+                       </li>
                     </ul>
 
                   

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\HomeController;
 
 Route::get('/', [App\Http\Controllers\ViewController::class, 'displayAll'])->name('home');
 
@@ -29,3 +29,8 @@ Route::get('/my-series/{series}/edit', [App\Http\Controllers\SeriesController::c
 Route::patch('/my-series/{series}', [App\Http\Controllers\SeriesController::class, 'update'])->name('my-series.update');
 Route::post('/my-series/{series}/delete', [App\Http\Controllers\SeriesController::class, 'delete']);
 
+Route::post('/save-series', [HomeController::class, 'saveSeries'])->name('save.series');
+
+Route::get('/saved-series', [App\Http\Controllers\SeriesController::class, 'showSavedSeries'])->name('saved-series');
+
+Route::delete('/saved-series/{id}', [App\Http\Controllers\SeriesController::class, 'deleteSavedSeries'])->name('saved-series.delete');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Series;
 use App\Models\Rating;
 use Illuminate\Http\Request;
+use App\Models\SavedSeries;
 
 class SeriesController extends Controller
 {
@@ -13,7 +14,10 @@ class SeriesController extends Controller
     }
 
     public function create(){
-        return view('series/create');
+     
+        return view('series/create' , ['enabled' => auth()->user()->enabled]);
+      
+        
     }
 
     public function store(){
@@ -77,5 +81,31 @@ class SeriesController extends Controller
         $series->delete();
         return redirect('/my-series/'.auth()->user()->id);
       }
+
+      public function showSavedSeries()
+    {
+        $user = auth()->user(); 
+       
+        $savedSeries = SavedSeries::where('user_id', $user->id)->get();
+
+        return view('saved_series', compact('savedSeries'));
+    }
+
+
+    public function deleteSavedSeries($id)
+    {
+        $user = auth()->user(); 
+        $savedSeries = SavedSeries::where('user_id', $user->id)
+                                  ->where('series_id', $id)
+                                  ->first(); 
+
+        if ($savedSeries) {
+            $savedSeries->delete(); 
+            return response()->json(['message' => 'Serial został usunięty z zapisanych.'], 200);
+        }
+
+        return response()->json(['message' => 'Nie znaleziono zapisanego serialu.'], 404);
+    }
+
 
 }
